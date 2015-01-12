@@ -1,488 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-
-    <title>Blue Fragrance</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="dist/css/carousel.css" rel="stylesheet">
-	<script>
-	function captchaRand() {
-var a= String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
-var b= String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
-    var c = Math.floor((Math.random() * 10)).toString();
-    var d = Math.floor((Math.random() * 10)).toString();
-    var e = Math.floor((Math.random() * 10)).toString();
-    document.getElementById("captchaGenerate").innerHTML = a+b+c+d+e;
-}
-function validateForm() {
-
-	//Name Validation
-    if( document.form.inputName.value == "" )
-   {
-     alert( "Name: Must be filled." );
-     document.form.inputName.focus() ;
-     return false;
-   }
-   if( document.form.inputName.value.length < 6 )
-   {
-     alert( "Name: Length of Name must be at least 6 characters." );
-     document.form.inputName.focus() ;
-     return false;
-   }
-   if( document.form.inputName.value.indexOf(" ") == -1 )
-   {
-     alert( "Name: Must more than one word." );
-     document.form.inputName.focus() ;
-     return false;
-   }
-   
-   //Gender Validation
-   if( document.form.inputGender.value == "" )
-   {
-     alert( "Gender: Must be chosen." );
-     document.form.inputGender.focus() ;
-     return false;
-   }
-   
-   //Password Validation
-   if( document.form.inputPass.value == "" )
-   {
-     alert( "Password: Must be filled." );
-     document.form.inputPass.focus() ;
-     return false;
-   }
-   if( document.form.inputPass.value.length < 6 )
-   {
-     alert( "Password: Length of Password must be at least 6 characters." );
-     document.form.inputPass.focus() ;
-     return false;
-   }
-   
-   //Password Confirmation Validation
-   if( document.form.inputPassConf.value == "" )
-   {
-     alert( "Confirm Password: Must be filled." );
-     document.form.inputPassConf.focus() ;
-     return false;
-   }
-   if( document.form.inputPassConf.value != document.form.inputPass.value )
-   {
-     alert( "Confirm Password: Must match with Password." );
-     document.form.inputPassConf.focus() ;
-     return false;
-   }
-   
-   //Email Validation
-   if( document.form.inputEmail.value == "" )
-   {
-     alert( "Email: Must be filled." );
-     document.form.inputEmail.focus() ;
-     return false;
-   }
-   
-   //Address Validation
-   if( document.form.inputAddress.value == "" )
-   {
-     alert( "Address: Must be filled." );
-     document.form.inputAddress.focus() ;
-     return false;
-   }
-   if( document.form.inputAddress.value.search("street") == -1 )
-   {
-     alert( "Address: Address must contain 'street' word and case sensitive." );
-     document.form.inputAddress.focus() ;
-     return false;
-   }
-   if( document.form.inputAddress.value.length < 10 )
-   {
-     alert( "Password: Length of Password must be at least 10 characters." );
-     document.form.inputAddress.focus() ;
-     return false;
-   }
-   
-   //Captcha Validation
-   if( document.form.inputCaptcha.value != document.getElementById("captchaGenerate").innerHTML )
-   {
-     alert( "Re-Captcha: Must be exactly same with Captcha." );
-     document.form.inputCaptcha.focus() ;
-     return false;
-   }
-   
-   return( true );
-}
-</script>
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body onload="captchaRand()">
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand">Blue Fragrance</a>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+        <title>Blue Fragrance</title>
+        <link href="dist/css/bootstrap.css" rel="stylesheet">
+        <link href="dist/css/carousel.css" rel="stylesheet">
+        <script>
+            function captchaRand() {
+                var a = String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
+                var b = String.fromCharCode(Math.floor(Math.random() * (90 - 65 + 1)) + 65);
+                var c = Math.floor((Math.random() * 10)).toString();
+                var d = Math.floor((Math.random() * 10)).toString();
+                var e = Math.floor((Math.random() * 10)).toString();
+                document.getElementById("captchaGenerate").innerHTML = a + b + c + d + e;
+            }
+            function validateForm() {
+                /* Name Validation */
+                if (document.form.inputName.value == "") {
+                    alert("Name: Must be filled.");
+                    document.form.inputName.focus();
+                    return false;
+                }
+                if (document.form.inputName.value.length < 6) {
+                    alert("Name: Length of Name must be at least 6 characters.");
+                    document.form.inputName.focus();
+                    return false;
+                }
+                if (document.form.inputName.value.indexOf(" ") == -1) {
+                    alert("Name: Must more than one word.");
+                    document.form.inputName.focus();
+                    return false;
+                }
+                /* Gender Validation */
+                if (document.form.inputGender.value == "") {
+                    alert("Gender: Must be chosen.");
+                    document.form.inputGender.focus();
+                    return false;
+                }
+                /* Password Validation */
+                if (document.form.inputPass.value == "") {
+                    alert("Password: Must be filled.");
+                    document.form.inputPass.focus();
+                    return false;
+                }
+                if (document.form.inputPass.value.length < 6) {
+                    alert("Password: Length of Password must be at least 6 characters.");
+                    document.form.inputPass.focus();
+                    return false;
+                }
+                /* Password Confirmation Validation */
+                if (document.form.inputPassConf.value == "") {
+                    alert("Confirm Password: Must be filled.");
+                    document.form.inputPassConf.focus();
+                    return false;
+                }
+                if (document.form.inputPassConf.value != document.form.inputPass.value) {
+                    alert("Confirm Password: Must match with Password.");
+                    document.form.inputPassConf.focus();
+                    return false;
+                }
+                /* Email Validation */
+                if (document.form.inputEmail.value == "") {
+                    alert("Email: Must be filled.");
+                    document.form.inputEmail.focus();
+                    return false;
+                }
+                /* Address Validation */
+                if (document.form.inputAddress.value == "") {
+                    alert("Address: Must be filled.");
+                    document.form.inputAddress.focus();
+                    return false;
+                }
+                if (document.form.inputAddress.value.search("street") == -1) {
+                    alert("Address: Address must contain 'street' word and case sensitive.");
+                    document.form.inputAddress.focus();
+                    return false;
+                }
+                if (document.form.inputAddress.value.length < 10) {
+                    alert("Password: Length of Password must be at least 10 characters.");
+                    document.form.inputAddress.focus();
+                    return false;
+                }
+                /* Captcha Validation */
+                if (document.form.inputCaptcha.value != document.getElementById("captchaGenerate").innerHTML) {
+                    alert("Re-Captcha: Must be exactly same with Captcha.");
+                    document.form.inputCaptcha.focus();
+                    return false;
+                }
+                return(true);
+            }
+        </script>
+    </head>
+    <body onload="captchaRand()">
+        <div class="navbar-wrapper">
+            <div class="container">
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand">Blue Fragrance</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal">Register</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal4">Collections</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal3">Contact Us</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">About Us</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">Register</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal4">Collections</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal3">Contact Us</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal2">About Us</a></li>
-                  </ul>
-                </li>
-              </ul>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Register with us today!</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Who we are</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal2">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>What we sell</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal4">Shop perfumes</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </nav>
-
-      </div>
-    </div>
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Register with us today!</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal">Sign up today</a></p>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="container marketing">
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="img/perfume-1.jpg" alt="Generic placeholder image">
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Who we are</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal2">Learn more</a></p>
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="img/perfume-2.jpg" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>What we sell</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#myModal4">Shop perfumes</a></p>
+            <hr class="featurette-divider">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="img/perfume-3.jpg" alt="Generic placeholder image">
+                </div>
             </div>
-          </div>
+            <hr class="featurette-divider">
+            <footer>
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2014 Blue Fragrance, Inc.</p>
+            </footer>
         </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Our Collections</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+                                <h2>Heading</h2>
+                                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                                <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="img/perfume-1.jpg" alt="Generic placeholder image">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">About Us</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="img/perfume-2.jpg" alt="Generic placeholder image">
+        <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Registration Form</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" name="form" onsubmit="return validateForm()" method="get">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputName">Name</label>
+                                    <div class="col-md-4">
+                                        <input id="inputName" name="inputName" type="text" placeholder="" class="form-control input-md">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputGender">Gender</label>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline" for="inputGender-0">
+                                            <input type="radio" name="inputGender" id="inputGender-0" value="M">
+                                            Male
+                                        </label>
+                                        <label class="radio-inline" for="inputGender-1">
+                                            <input type="radio" name="inputGender" id="inputGender-1" value="F">
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputPass">Password</label>
+                                    <div class="col-md-4">
+                                        <input id="inputPass" name="inputPass" type="password" placeholder="" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputPassConf">Confirm Password</label>
+                                    <div class="col-md-4">
+                                        <input id="inputPassConf" name="inputPassConf" type="password" placeholder="" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputEmail">Email</label>
+                                    <div class="col-md-4">
+                                        <input id="inputEmail" name="inputEmail" type="text" placeholder="" class="form-control input-md">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputAddress">Address</label>
+                                    <div class="col-md-4">
+                                        <textarea class="form-control" id="inputAddress" name="inputAddress"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="inputCaptcha">Captcha</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="captchaGenerate" ></span>
+                                            <input id="inputCaptcha" name="inputCaptcha" class="form-control" placeholder="" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <div class="col-md-4">
+                                        <button id="submit" name="submit" class="btn btn-primary">Register</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="img/perfume-3.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Blue Fragrance, Inc.</p>
-      </footer>
-
-    </div><!-- /.container -->
-	
-	<!-- Modal -->
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Our Collections</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-		<div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-		<div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="img/perfume-thumb-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">Add to Cart &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-      </div>
-    </div>
-  </div>
-</div>
-	
-	<!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">About Us</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-    </div>
-  </div>
-</div>
-	
-	<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registration Form</h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal" name="form" onsubmit="return validateForm()" method="get">
-<fieldset>
-
-<!-- Form Name -->
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputName">Name</label>  
-  <div class="col-md-4">
-  <input id="inputName" name="inputName" type="text" placeholder="" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputGender">Gender</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="inputGender-0">
-      <input type="radio" name="inputGender" id="inputGender-0" value="M" checked="checked">
-      Male
-    </label> 
-    <label class="radio-inline" for="inputGender-1">
-      <input type="radio" name="inputGender" id="inputGender-1" value="F">
-      Female
-    </label>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputPass">Password</label>  
-  <div class="col-md-4">
-  <input id="inputPass" name="inputPass" type="text" placeholder="" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputPassConf">Confirm Password</label>  
-  <div class="col-md-4">
-  <input id="inputPassConf" name="inputPassConf" type="text" placeholder="" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputEmail">Email</label>  
-  <div class="col-md-4">
-  <input id="inputEmail" name="inputEmail" type="text" placeholder="" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputAddress">Address</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="inputAddress" name="inputAddress"></textarea>
-  </div>
-</div>
-
-<!-- Prepended text-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="inputCaptcha">Captcha</label>
-  <div class="col-md-4">
-    <div class="input-group">
-      <span class="input-group-addon" id="captchaGenerate" ></span>
-      <input id="inputCaptcha" name="inputCaptcha" class="form-control" placeholder="" type="text">
-    </div>
-    
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Register</button>
-	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-  </body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="dist/js/bootstrap.min.js"></script>
+    </body>
 </html>
